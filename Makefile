@@ -1,18 +1,23 @@
-CC=gcc
-CFLAGS=-Wall -DTOTO -I.
-OBJS=main.o
-EXE=tp6.exe
+############################ -*- Mode: Makefile -*- ###########################
+## Makefile --- Cours MPI : TP1 : Environnement
+##
+## Auteur          : Dimitri Lecas (CNRS/IDRIS) <dimitri.lecas@idris.fr>
+###############################################################################
 
-help:
-	@echo "taper make all"
+# Compilateurs, options de compilation et d'édition de liens
+include ./arch/make_gcc
+OBJS = even_odd.o
 
-all: $(OBJS) rtest
-	@echo "### Gen exe"
-	gcc $(OBJS) -o $(EXE)
-	@echo "### fini"
+# Règle implicite de compilation
+.SUFFIXES: .o .c
+.c.o:
+	$(CC) -c $(CFLAGS_TP1) $<
 
-rtest:
-	@echo "### Je lance le test"
+all: even_odd
+
+even_odd:$(OBJS)
+	$(CC) -o $@ $(LDFLAGS_TP1) $(OBJS)
+	$(MPIEXEC_TP1) ./even_odd
 
 clean:
-	rm -f $(OBJS) $(EXE)   
+	rm -f $(OBJS) even_odd core
