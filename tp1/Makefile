@@ -6,18 +6,18 @@
 
 # Compilateurs, options de compilation et d'édition de liens
 include ./arch/make_gcc
-OBJS = even_odd.o
+OBJS = exemple_03.o
 
 # Règle implicite de compilation
 .SUFFIXES: .o .c
 .c.o:
 	$(CC) -c $(CFLAGS_TP1) $<
 
-all: even_odd
+all: exemple_03
 
-even_odd:$(OBJS)
+exemple_03:$(OBJS)
 	$(CC) -o $@ $(LDFLAGS_TP1) $(OBJS)
-	$(MPIEXEC_TP1) ./even_odd
+	$(MPIEXEC_TP1) -n 2 ./exemple_03
 
 clean:
-	rm -f $(OBJS) even_odd core
+	rm -f $(OBJS) exemple_03 core
