@@ -1,0 +1,2 @@
+gcc -g -c  pi_iteratif.c
+gcc -g -o pi_iteratif pi_iteratif.o

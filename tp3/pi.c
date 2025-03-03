@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
   temps_debut=MPI_Wtime();
 
   /* Nombre d'intervalles */
-  nbbloc = 32*1000*1000LL*100;
+  nbbloc = 1000*1000*1000LL*100;
   /* largeur des intervalles */
   largeur = 1.0/nbbloc;
 
