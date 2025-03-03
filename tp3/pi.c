@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
   temps_debut=MPI_Wtime();
 
   /* Nombre d'intervalles */
-  nbbloc = 1000*1000*1000LL*100;
+  nbbloc = 3*1000*1000LL*100;
   /* largeur des intervalles */
   largeur = 1.0/nbbloc;
 
@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
   temps_fin=MPI_Wtime();
 
   if (rank == 0)
-    printf("Pi = %.20lf\nTemps: %lf\n", pi, temps_fin-temps_debut);
+    printf("Pi = %.20lf %d  Temps: %lf\n", pi, nbProc, temps_fin-temps_debut);
 
   /* Sortie de MPI */
   MPI_Finalize();

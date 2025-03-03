@@ -14,7 +14,7 @@
    //double temps_debut,temps_fin;
  
    /* Nombre d'intervalles */
-   nbbloc = 32*1000*1000LL*100;
+   nbbloc = 3*1000*1000LL*100;
    /* largeur des intervalles */
    largeur = 1.0/nbbloc;
  
