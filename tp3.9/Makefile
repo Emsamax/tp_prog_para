@@ -1,25 +1,25 @@
 ############################ -*- Mode: Makefile -*- ###########################
-## Makefile --- Cours MPI : TP3 : Communications collectives
+## Makefile --- Cours MPI : TP3.9 : stride
 ##
-## Auteur          : Dimitri Lecas (CNRS/IDRIS) <dimitri.lecas@idris.fr>
-## 
+## Auteur          : MMancini
+##
 ###############################################################################
 
 # Compilateurs, options de compilation et d'�dition de liens
 include ../arch/make_inc
 
-OBJS  = pi.o
+OBJS = stride.o
 
 # R�gle implicite de compilation
 .SUFFIXES: .o .c
 .c.o:
-	$(CC) -c $(CFLAGS_TP3) $<
+	$(CC) -c $(CFLAGS_EX3) $<
 
-all: pi
+all: stride
 
-pi: $(OBJS)
-	$(CC) -o $@ $(LDFLAGS_TP3) $(OBJS)
-	$(MPIEXEC_EX1) ./pi
+stride:$(OBJS)
+	$(CC) -o $@ $(LDFLAGS_EX3) $(OBJS)
+	$(MPIEXEC_EX3) ./stride
 
 clean:
-	rm -f $(OBJS) pi core
+	rm -f $(OBJS) stride core
