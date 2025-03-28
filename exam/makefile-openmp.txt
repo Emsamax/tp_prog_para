@@ -1,0 +1,2 @@
+gcc -o  weighted_openmp weighted_openmp.c -fopenmp
+./weighted_openmp

@@ -1,0 +1,3 @@
+gcc -g -c  weighted_seq.c
+gcc -g -o weighted_seq weighted_seq.o
+./weighted_seq
